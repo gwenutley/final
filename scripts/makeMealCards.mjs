@@ -16,7 +16,7 @@ export async function makeMealCards() {
 
             card.innerHTML = `
                 <h3>${meal.strMeal}</h3>
-                <img src="${meal.strMealThumb}" alt="${meal.strMeal}" width="500">
+                <img src="${meal.strMealThumb}" alt="${meal.strMeal}" />
                 <p><strong>Category:</strong> ${meal.strCategory}</p>
                 <p><strong>Instructions:</strong> ${meal.strInstructions}</p>
                 <h4>Ingredients:</h4>

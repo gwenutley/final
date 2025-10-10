@@ -18,29 +18,37 @@ export function createIngredientList(meal) {
         const ingredient = meal[`strIngredient${i}`];
         const measurement = meal[`strMeasure${i}`];
 
-        if (ingredient && ingredient.trim() !== "") {
+        if (ingredient) {
             ingredients.push(`${measurement ? measurement : ""} ${ingredient}`.trim());
         }
     }
     return ingredients;
 }
 
-export function displayMeal(meal) {
+export function displayMealPreview(meal) {
     const mealDiv = document.getElementById("meal-info");
 
     const ingredients = createIngredientList(meal);
 
     mealDiv.innerHTML = `
-        <h2>${meal.strMeal}</h2>
-        <img src="${meal.strMealThumb}" alt="${meal.strMeal}" width="500">
-        <p><strong>Category:</strong> ${meal.strCategory}</p>
-        <p><strong>Instructions:</strong> ${meal.strInstructions}</p>
-        <h3>Ingredients:</h3>
-        <ul>
-            ${ingredients.map(item => `<li>${item}</li>`).join("")}
-        </ul>
+        <div>
+            <h2>${meal.strMeal}</h2>
+            <img src="${meal.strMealThumb}" alt="${meal.strMeal}">
+            <a href="meal.html?id=${meal.idMeal}">View Full Recipe</a>
+        </div>
     `;
     
+}
+
+export async function getMealById(id) {
+    try {
+        const response = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`);
+        const data = await response.json();
+        return data.meals[0];
+    } catch (error) {
+        console.error("Error fetching meal by ID:", error);
+        return null;
+    }
 }
 
 

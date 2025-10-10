@@ -1,7 +1,22 @@
 /*header section*/
 header {
     background-color: #a3b18a;
+    color: #2D3430;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
 }
+
+header button {
+    border: none;
+    background-color: #a3b18a;
+    color: #2D3430;
+    font-size: 30px;
+    cursor: pointer;
+    padding: 5px;
+}
+
 
 /*hero image*/
 .hero {
@@ -31,8 +46,10 @@ header {
 
 /*meal cards*/
 .meal {
-    background-color: white;
-    border: 2px solid #a3b18a;
+    background-color: #a3b18a;
+    border: 2px solid #2D3430;
+    padding: 15px;
+
 }
 
 .meal img {
