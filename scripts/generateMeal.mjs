@@ -33,7 +33,7 @@ export function displayMealPreview(meal) {
     mealDiv.innerHTML = `
         <div>
             <h2>${meal.strMeal}</h2>
-            <img src="${meal.strMealThumb}" alt="${meal.strMeal}">
+            <img src="${meal.strMealThumb}" alt="${meal.strMeal}"><br>
             <a href="meal.html?id=${meal.idMeal}">View Full Recipe</a>
         </div>
     `;

@@ -41,7 +41,6 @@ export async function loadMealDetails() {
             ${ingredients.map(item => `<li>${item}</li>`).join("")}
         </ul>
         <button id="save-favorite">Save to Favorites</button>
-        <a href="index.html">Back to Home</a>
     `;
 
     //take the user input and display prices of list items from the API
