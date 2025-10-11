@@ -17,11 +17,10 @@ export async function makeMealCards() {
             card.innerHTML = `
                 <h3>${meal.strMeal}</h3>
                 <img src="${meal.strMealThumb}" alt="${meal.strMeal}" />
-                <p><strong>Category:</strong> ${meal.strCategory}</p>
-                <p><strong>Instructions:</strong> ${meal.strInstructions}</p>
+                <p><strong>Instructions:</strong> ${shortenText(meal.strInstructions, 50)}</p>
                 <h4>Ingredients:</h4>
                 <ul>
-                    ${ingredients.map(item => `<li>${item}</li>`).join("")}
+                    ${shortenText(ingredients.map(item => `<li>${item}</li>`).join(""), 25)}
                 </ul>
             `;
 
@@ -30,4 +29,10 @@ export async function makeMealCards() {
             console.error(`Failed to load meal ${i}`, error);
         }
     }
+}
+
+function shortenText(text, wordLimit = 50) {
+    const words = text.split(" ");
+    if (words.length <= wordLimit) return text;
+    return words.slice(0, wordLimit).join(" ") + ". . .";
 }
