@@ -17,6 +17,11 @@ header button {
     padding: 5px;
 }
 
+header button:hover {
+    transform: scale(1.5);
+    color: #1f2321;
+}
+
 
 /*hero image*/
 .hero {
@@ -85,7 +90,8 @@ header button {
 
 #meal-info a,
 #meal-details button,
-.meal-card a {
+.meal-card a,
+#get-nutrition {
    display: block;
    width: fit-content;
    margin: 0 auto;
@@ -100,7 +106,8 @@ header button {
 
 #meal-info a:hover,
 .meal-card a:hover,
-#meal-details button:hover {
+#meal-details button:hover,
+#get-nutrition:hover {
     background-color: #d3a382;
 }
 
@@ -116,6 +123,11 @@ header button {
 .meal img {
     width: 250px;
     height: 250px;
+    transition: transform 0.3s ease;
+}
+
+.meal img:hover {
+    transform:scale(1.15);
 }
 
 
@@ -143,6 +155,11 @@ header button {
     margin: 0 auto;
     border: 2px solid #2D3430;
     border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+#meal-details img:hover {
+    transform: scale(1.15);
 }
 
 #meal-details p {
@@ -183,14 +200,74 @@ header button {
 }
 
 
+/*nutritional info section*/
+#nutrition h2 {
+    text-align: center;
+    color:#2D3430;
+}
+
+#get-nutrition {
+    margin: 15px auto;
+}
+
+#ingredient-nutrition {
+    border: 3px solid #2D3430;
+    color: #2D3430;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 15px auto;
+}
+
+#ingredient-nutrition h3 {
+    text-align: center;
+    font-size: 20px;
+}
+
+#ingredient-nutrition p {
+    text-align: center;
+    font-size: 18px;
+}
+
 
 
 /*footer section*/
 footer {
     background-color: #a3b18a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+footer img {
+    width: 100px;
+    margin: 10px;
+}
+
+footer p {
+    font-size: 20px;
+    
 }
 
 @media screen and (min-width: 500px) {
+    /*footer section*/
+    footer {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+
+    footer img {
+        width: 100px;
+        margin: 10px;
+    }
+
+    footer p {
+        font-size: 20px;
+
+    }
     /*banner and header */
         /*header section*/
         header {

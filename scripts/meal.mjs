@@ -1,6 +1,7 @@
 //displays the full meal deatails in a new page
 import { getMealById, createIngredientList } from "./generateMeal.mjs";
-import { getIngredientPrices, createIngredientListOnly } from "./getIngredients.mjs";
+import { showNutritionForMeal } from "./getIngredients.mjs";
+
 
 //get the meal id fron the url 
 function getMealIdFromURL() {
@@ -26,10 +27,6 @@ export async function loadMealDetails() {
     //get the ingredients with measurememnts
     const ingredients = createIngredientList(meal);
     
-    //get ingredients only and with measurements
-    const ingredientNames = createIngredientListOnly(meal);
-    const prices = await getIngredientPrices("Walmart", ingredientNames);
-
     //output to display to the screen
     mealContainer.innerHTML = `
         <h1>${meal.strMeal}</h1>
@@ -43,16 +40,9 @@ export async function loadMealDetails() {
         <button id="save-favorite">Save to Favorites</button>
     `;
 
-    //take the user input and display prices of list items from the API
-    const priceButton = document.getElementById("get-prices");
-    priceButton?.addEventListener("click", async () => {
-        const storeName = document.getElementById("store-input")?.value?.trim();
-        const prices = await getIngredientPrices(storeName, ingredientNames);
-        const priceList = document.getElementById("ingredient-prices");
-        priceList.innerHTML = prices.map(item => {
-            return `<li>${item.ingredient}: <strong>${item.price}</strong></li>`;
-
-        }).join("");
+    //take the user input and display nutrition info for the meal from the API
+    document.getElementById("get-nutrition")?.addEventListener("click", async () => {
+        await showNutritionForMeal(meal);
     });
 
     function saveMealToFavorites(meal) {
