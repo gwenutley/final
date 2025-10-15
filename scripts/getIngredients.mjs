@@ -49,7 +49,7 @@ export async function getIngredientNutrition(ingredients) {
                     "Content-Type": "application/json",
 
                 },
-                body: JSON.stringify([{ name: ingredient }]),
+                body: JSON.stringify([ingredient]),
             }
         );
 
@@ -62,7 +62,7 @@ export async function getIngredientNutrition(ingredients) {
         return data[0]?.nutrition ?? null;
     });
 
-    const nutritionDataata = await Promise.all(promises);
+    const nutritionData = await Promise.all(promises);
 
     let total = { calories: 0, fat: 0, protein: 0 };
 

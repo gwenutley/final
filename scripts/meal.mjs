@@ -31,7 +31,7 @@ export async function loadMealDetails() {
     mealContainer.innerHTML = `
         <h1>${meal.strMeal}</h1>
         <img src="${meal.strMealThumb}" alt="${meal.strMeal}" />
-        <p><strong>Category:</strong> ${meal.strCategory}</p>
+        <p id="category"><strong>Category:</strong> ${meal.strCategory}</p>
         <p><strong>Instructions:</strong> ${meal.strInstructions}</p>
         <h3>Ingredients:</h3>
         <ul>

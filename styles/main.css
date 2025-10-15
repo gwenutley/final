@@ -91,7 +91,8 @@ header button:hover {
 #meal-info a,
 #meal-details button,
 .meal-card a,
-#get-nutrition {
+#get-nutrition,
+.home {
    display: block;
    width: fit-content;
    margin: 0 auto;
@@ -107,13 +108,22 @@ header button:hover {
 #meal-info a:hover,
 .meal-card a:hover,
 #meal-details button:hover,
-#get-nutrition:hover {
+#get-nutrition:hover,
+.home:hover {
     background-color: #d3a382;
+}
+
+
+/*home button*/
+.home {
+    font-size: 20px;
+    border: 2px solid #2D3430;
+    margin-bottom: 15px;
 }
 
 /*meal cards*/
 .meal {
-    background-color: #a3b18a;
+    background-color: #F1E6B9;
     border: 2px solid #2D3430;
     padding: 15px;
     margin: 0 0 40px 0;
@@ -229,7 +239,6 @@ header button:hover {
 }
 
 
-
 /*footer section*/
 footer {
     background-color: #a3b18a;
@@ -245,15 +254,21 @@ footer img {
     margin: 10px;
 }
 
+footer img:hover {
+    transform: scale(1.15);
+}
+
 footer p {
     font-size: 20px;
     
 }
 
+
 @media screen and (min-width: 500px) {
     /*footer section*/
     footer {
         display: flex;
+        flex-direction: row;
         justify-content: space-around;
         align-items: center;
     }
@@ -269,41 +284,41 @@ footer p {
 
     }
     /*banner and header */
-        /*header section*/
-        header {
-            font-size: 25px;
-            padding: 5px auto;
-        }
-    
-        header button {
-            font-size: 30px;
-        }
-    
-        .hero-text {
-            font-size: 15px;
-        }
-    
-        /*generated meal*/
-    
-        #meal-info h2 {
-            font-size: 35px;
-        }
-    
-        #meal-info img {
-            width: 400px;
-        }
-    
-        #meal-info a,
-        #meal-details button,
-        .meal-card a {
-            font-size: 20px;
-        }
+    /*header section*/
+    header {
+        font-size: 25px;
+        padding: 5px 20px;
+    }
+
+    header button {
+        font-size: 30px;
+    }
+
+    .hero-text {
+        font-size: 15px;
+    }
+
+    /*generated meal*/
+
+    #meal-info h2 {
+        font-size: 35px;
+    }
+
+    #meal-info img {
+        width: 400px;
+    }
+
+    #meal-info a,
+    #meal-details button,
+    .meal-card a {
+        font-size: 20px;
+    }
 
     /*meal cards*/
     .meal {
         display: grid;
         grid-template-columns: 270px 1fr;
-        grid-template-rows: 70px 30px 250px 150px;
+        grid-template-rows: 70px 30px 250px 200px;
     }
 
     .meal h3 {
@@ -330,6 +345,88 @@ footer p {
         grid-column: 1 / 3;
         grid-row: 4 / 5;
     }
+
+    /*meal page*/
+    #meal-details {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: 50px 30px auto 30px auto 50px;
+    }
+
+    #meal-details h1 {
+        grid-column: 1 / 3;
+        grid-row: 1 / 2;
+    }
+
+    #meal-details img {
+        grid-column: 1 / 2;
+        grid-row: 2 / 6;
+        width: 350px;
+        height: 350px;
+        align-self: center;
+    }
+
+    #meal-details #category {
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+    }
+
+    #meeal-details p {
+        grid-column: 2 / 3;
+        grid-row: 3 / 4;
+    }
+
+    #meal-details h3 {
+        grid-column: 2 / 3;
+        grid-row: 4 / 5;
+    }
+
+    #meal-details ul {
+        grid-column: 2 / 3;
+        grid-row: 5 / 6;
+    }
+
+    #meal-details button {
+        grid-column: 1 / 3;
+        grid-row: 6 / 7;
+    }
+
+    /*favorite meals section*/
+    #favorite-meals .meal {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        gap: 10px;
+        padding: 15px;
+
+    }
+
+    #favorite-meals .meal img {
+        grid-column: 1 / 2;
+        grid-row: 1 / span 3;
+        width: 300px;
+        height: 300px;
+    }
+
+    #favorite-meals .meal h3 {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+        margin: 0;
+        font-size: 25px;
+    }
+    #favorite-meals p {
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+        margin: 0;
+        font-size: 20px;
+    }
+
+    #favorite-meals div.link {
+        grid-column: 2 / 3;
+        grid-row: 3 / 4;
+        font-size: 20px;
+    }
+
 }
 
 
@@ -344,7 +441,7 @@ footer p {
     .meal {
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: 70px 250px 175px 50px 200px;
+        grid-template-rows: 70px 250px auto 50px auto;
         max-width: 500px;
         height: auto;
     }
@@ -365,5 +462,54 @@ footer p {
         grid-row: 5 / 6;
     }
 
+    /*favorite meals*/
+    #favorite-meals {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        
+    }
+    #favorite-meals .meal {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        gap: 10px;
+        padding: 15px;
 
+    }
+
+    #favorite-meals .meal img {
+        grid-column: 1 / 2;
+        grid-row: 1 / span 3;
+        width: 300px;
+        height: 300px;
+    }
+
+    #favorite-meals .meal h3 {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+        margin: 0;
+        font-size: 25px;
+    }
+
+    #favorite-meals p {
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+        margin: 0;
+        font-size: 20px;
+    }
+
+    #favorite-meals div.link {
+        grid-column: 2 / 3;
+        grid-row: 3 / 4;
+        font-size: 20px;
+    }
+
+    /*hero image*/
+
+    .hero-text {
+        font-size: 20px;
+        top: 70%;
+        left: 10%;
+    }
 }

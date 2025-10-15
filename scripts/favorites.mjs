@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <h3>${meal.strMeal}</h3>
             <img src="${meal.strMealThumb}" alt="${meal.strMeal}">
             <p><strong>Category:</strong> ${meal.strCategory}</p>
-            <a href="meal.html?id=${meal.idMeal}">View Full Recipe</a>
+            <div class="link"><a href="meal.html?id=${meal.idMeal}">View Full Recipe</a></div>
             `;
         
         container.appendChild(card);
