@@ -7,6 +7,7 @@ export async function makeMealCards() {
     
     for (let i = 1; i <= 3; i++) {
         try {
+            /*this will parse information from the APIs Json.*/
             const meal = await getRandomMeal();
             const ingredients = createIngredientList(meal);
 
@@ -31,6 +32,7 @@ export async function makeMealCards() {
     }
 }
 
+/*takes any super long instructions sections and shortens them*/
 function shortenText(text, wordLimit = 50) {
     const words = text.split(" ");
     if (words.length <= wordLimit) return text;

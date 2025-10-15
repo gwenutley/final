@@ -9,6 +9,12 @@ function getMealIdFromURL() {
     return params.get("id");
 }
 
+/*this function will load and display meal details
+it includes many checks that containers exist, and data is returned
+before moving on
+also incudes parsed json data, being using in an array,
+and updating the DOM
+*/
 export async function loadMealDetails() {
     const mealId = getMealIdFromURL();
     const mealContainer = document.getElementById("meal-details");
@@ -45,6 +51,11 @@ export async function loadMealDetails() {
         await showNutritionForMeal(meal);
     });
 
+
+    /*this function saves the meal using the localstorage, then 
+    it gets meal information from loacalstorage and parses JSON data
+    to al array
+    */
     function saveMealToFavorites(meal) {
         const favorites = JSON.parse(localStorage.getItem("favoriteMeals")) || [];
 

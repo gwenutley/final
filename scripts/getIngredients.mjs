@@ -1,5 +1,7 @@
 import { createIngredientList } from "./generateMeal.mjs";
 
+/*first atempts to fetch nutrition information for a meal
+based on its name, then falls back on nutrition based on ingredients*/
 async function getTheMealNutrition(mealName, ingredients) {
     try {
         const mealNutrition = await findMealNutrition(mealName);
@@ -14,6 +16,7 @@ async function getTheMealNutrition(mealName, ingredients) {
     return await getIngredientNutrition(ingredients)
 }
 
+/*Uses and api to estimate the nutrition for a meal*/
 export async function findMealNutrition(mealName) {
     const apiKey = "fa83af7cfdf94b7daa839893ba648d0e";
     const url = `https://api.spoonacular.com/recipes/guessNutrition?title=${encodeURIComponent(mealName)}&apiKey=${apiKey}`
@@ -37,6 +40,7 @@ export async function findMealNutrition(mealName) {
     };
 }
 
+/*This function is for if the other meal fails, it will look abut ingredient nutrition*/
 export async function getIngredientNutrition(ingredients) {
     const apiKey = "fa83af7cfdf94b7daa839893ba648d0e";
     
@@ -49,7 +53,7 @@ export async function getIngredientNutrition(ingredients) {
                     "Content-Type": "application/json",
 
                 },
-                body: JSON.stringify([ingredient]),
+                body: JSON.stringify([ingredient]), //*Json type=product
             }
         );
 

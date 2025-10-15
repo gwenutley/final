@@ -1,8 +1,9 @@
-//generate a new meal from API
+//getches a random meal to generate it from an API
 export async function getRandomMeal() {
     try {
         const response = await fetch("https://www.themealdb.com/api/json/v1/1/random.php");
         const data = await response.json();
+        /*extracts json data*/
         const meal = data.meals[0];
         return meal;      
     } catch (error) {
@@ -11,6 +12,7 @@ export async function getRandomMeal() {
     }   
 }
 
+/*generates ingredients list, returns an array of manes*/
 export function createIngredientList(meal) {
     const ingredients = [];
 
@@ -25,6 +27,7 @@ export function createIngredientList(meal) {
     return ingredients;
 }
 
+/*render everthing, use data from previous json data files,*/
 export function displayMealPreview(meal) {
     const mealDiv = document.getElementById("meal-info");
 
@@ -40,6 +43,7 @@ export function displayMealPreview(meal) {
     
 }
 
+/*request to friholes*/
 export async function getMealById(id) {
     try {
         const response = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`);

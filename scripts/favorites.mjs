@@ -1,3 +1,5 @@
+/*accesses local storage and retrieves favorite meal arrah,
+ runs an event listener, contains looping json data*/
 document.addEventListener("DOMContentLoaded", () => {
     const container = document.getElementById("favorite-meals");
     const favorites = JSON.parse(localStorage.getItem("favoriteMeals")) || [];
